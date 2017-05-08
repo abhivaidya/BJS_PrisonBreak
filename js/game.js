@@ -59,9 +59,9 @@ var Game = (function () {
         var map = [
             [0, 1, 1, 1, 1, 1, 1, 1, 1],
             [0, -1, -1, -1, -1, -1, -1, -1, 0],
+            [0, -1, -1, -1, -1, 2, -1, -1, 0],
             [0, -1, -1, -1, -1, -1, -1, -1, 0],
-            [0, -1, -1, -1, -1, -1, -1, -1, 0],
-            [0, -1, -1, -1, -1, -1, -1, -1, 0],
+            [0, -1, -1, -1, 2, -1, -1, -1, 0],
             [0, -1, -1, -1, -1, -1, -1, -1, 0],
             [0, -1, -1, -1, -1, -1, -1, -1, 0],
             [0, 1, 1, 1, 1, 1, 1, 1, 0]
@@ -81,15 +81,15 @@ var Game = (function () {
                         asset.position.z = j * 3 - 15;
                     }
                 }
+                if (map[i][j] == 2) {
+                    asset = this.createAsset("Mesh1 Tree Model", Game.INSTANCE);
+                    asset.position.x = i * 3 - 12;
+                    asset.position.y = 0.5;
+                    asset.position.z = j * 3 - 12;
+                }
+                asset.receiveShadows = true;
                 this.shadowGenerator.getShadowMap().renderList.push(asset);
             }
-        }
-        for (var i = 0; i < this.nooftrees; i++) {
-            var tree_asset = this.createAsset("Mesh1 Tree Model", Game.INSTANCE);
-            tree_asset.position.x = Math.random() * this.GROUND_WIDTH / 2;
-            tree_asset.position.y = 0.5;
-            tree_asset.position.z = Math.random() * this.GROUND_HEIGHT / 2;
-            this.shadowGenerator.getShadowMap().renderList.push(tree_asset);
         }
     };
     Game.prototype.createAsset = function (name, mode, newName) {
