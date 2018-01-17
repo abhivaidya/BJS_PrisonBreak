@@ -8,7 +8,16 @@ html, body {
 
 #renderCanvas {
   width: 100%;
-  height: 100%; }
+  height: 100%;
+}
+
+#fpsLabel {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    color: #999;
+    cursor: default;
+}
 
 .splashscreen {
   margin: 0;

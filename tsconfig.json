@@ -5,6 +5,7 @@
     "sourceMap": false,
     "outDir":"js/"
   },
+  "compileOnSave": true,
   "exclude": [
     "node_modules"
   ]
